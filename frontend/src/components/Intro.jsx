@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { reducedMotion } from "../hooks";
 
-const WORDS = ["Frontend", "Full stack", "MERN + AI", "Ayush Kumar"];
-const STEP = 760;
+const WORDS = ["Software", "GenAI", "Full stack", "MERN stack", "Ayush Kumar"];
+const STEP = 680;
 const OPEN_AT = 3700;   // the screen splits open onto the hero
 const DONE_AT = 4800;
 

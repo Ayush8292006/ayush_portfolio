@@ -20,10 +20,8 @@ export default function App() {
       <Nav />
       <main>
         <Hero />
-        <div className="paper">
-          <Work />
-        </div>
         <div className="night">
+          <Work />
           <GenAI />
           <ML />
         </div>

@@ -7,62 +7,53 @@ const isDesktop = () => window.matchMedia("(min-width: 960px)").matches;
 const domain = (url) => url.replace(/^https?:\/\//, "").replace(/\/$/, "");
 
 /**
- * Pinned horizontal gallery on desktop: scrolling down moves the projects sideways,
- * each screenshot sits in a browser window that swings into place as it reaches the centre.
- * On small screens it's a vertical list where each window tilts in as you scroll.
+ * Pinned horizontal gallery on every screen size: scrolling down moves the projects sideways,
+ * and each screenshot sits in a browser window that swings into place as it reaches the centre.
  */
 export default function Work() {
   const sceneRef = useRef(null);
   const trackRef = useRef(null);
   const barRef = useRef(null);
   const countRef = useRef(null);
-  const size = useRef({ vw: 0, dist: 0 });
+  const size = useRef({ key: "", dist: 0 });
 
   useScrollScene(sceneRef, (p, el, vh, vw) => {
     const track = trackRef.current;
     if (!track) return;
-    const desktop = isDesktop();
-    if (!desktop) {
-      if (size.current.vw !== -1) {
-        el.style.height = "";
-        track.style.transform = "";
-        size.current.vw = -1;
-      }
-    } else {
-      if (size.current.vw !== vw) {
-        const dist = Math.max(0, track.scrollWidth - vw);
-        size.current = { vw, dist };
-        el.style.height = `${dist + vh}px`;
-      }
-      track.style.transform = `translate3d(${-p * size.current.dist}px, 0, 0)`;
-      if (barRef.current) barRef.current.style.transform = `scaleX(${p})`;
+    const wide = isDesktop();
+    // the section is as tall as the sideways distance, so scrolling down moves the row sideways
+    const key = `${vw}x${vh}`;
+    if (size.current.key !== key) {
+      const dist = Math.max(0, track.scrollWidth - vw);
+      size.current = { key, dist };
+      el.style.height = `${dist + vh}px`;
     }
+    track.style.transform = `translate3d(${-p * size.current.dist}px, 0, 0)`;
+    if (barRef.current) barRef.current.style.transform = `scaleX(${p})`;
 
     let current = 0;
     track.querySelectorAll(".work-panel").forEach((panel, i) => {
       const r = panel.getBoundingClientRect();
       // -1 … 0 … 1: how far the panel is from the centre of the screen
-      const off = desktop
-        ? Math.max(-1, Math.min(1, (r.left + r.width / 2 - vw / 2) / vw))
-        : Math.max(-1, Math.min(1, (r.top + r.height / 2 - vh / 2) / vh));
+      const off = Math.max(-1, Math.min(1, (r.left + r.width / 2 - vw / 2) / vw));
+      const a = Math.abs(off);
       const browser = panel.querySelector(".browser");
       const ghost = panel.querySelector(".work-ghost");
       const text = panel.querySelector(".work-text");
-      const a = Math.abs(off);
       if (browser) {
-        browser.style.transform = desktop
+        browser.style.transform = wide
           ? `perspective(1400px) rotateY(${off * -22}deg) rotateZ(${off * -2}deg) scale(${1 - a * 0.14})`
-          : `perspective(1000px) rotateX(${off * 18}deg) scale(${1 - a * 0.08})`;
+          : `perspective(900px) rotateY(${off * -16}deg) scale(${1 - a * 0.1})`;
       }
       if (ghost) {
-        ghost.style.transform = `translate3d(${off * (desktop ? 24 : 0)}%, ${desktop ? 0 : off * 40}px, 0)`;
+        ghost.style.transform = `translate3d(${off * 24}%, 0, 0)`;
         ghost.style.opacity = String(0.6 * (1 - Math.min(1, a * 1.8)));
       }
       if (text) {
-        text.style.opacity = desktop ? String(1 - Math.min(1, a * 2.4)) : "1";
-        text.style.transform = `translate3d(${desktop ? off * 50 : 0}px, ${desktop ? 0 : a * 40}px, 0)`;
+        text.style.opacity = String(1 - Math.min(1, a * (wide ? 1.5 : 1.3)));
+        text.style.transform = `translate3d(${off * (wide ? 50 : 30)}px, 0, 0)`;
       }
-      if (desktop && r.left < vw * 0.5) current = i;
+      if (r.left < vw * 0.5) current = i;
     });
     if (countRef.current) countRef.current.textContent = `${current + 1} / ${projects.length}`;
   });
@@ -73,7 +64,7 @@ export default function Work() {
         <div className="work-track" ref={trackRef}>
           <div className="work-intro">
             <ScrollTitle text="Things I've built" from={0} span={0.12} />
-            <p className="lede">Five MERN and AI projects, all live. Open them, try them, read the code.</p>
+            <p className="lede">Five MERN and AI projects, all live. Keep scrolling to move through them.</p>
           </div>
           {projects.map((p) => (
             <article className="work-panel" key={p.title} style={{ "--accent": p.accent }}>

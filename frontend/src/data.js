@@ -19,7 +19,7 @@ export const profile = {
   deskPhoto,
   resume: "/resume.pdf",
   // cycles under the name with a decoding effect
-  roles: ["MERN stack developer", "GenAI developer", "Building with LLMs and RAG", "Learning ML and deep learning", "Open to SDE and AI roles"],
+  roles: ["Software developer", "GenAI developer", "Full stack developer", "MERN stack developer", "Open to SDE and AI roles"],
   intro:
     "MERN stack and AI developer. I build web apps end to end with MongoDB, Express, React and Node.js — and put AI inside them with LangChain, RAG and Gemini.",
 };

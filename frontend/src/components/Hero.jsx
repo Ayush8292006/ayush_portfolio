@@ -3,6 +3,15 @@ import { profile, statement } from "../data";
 import { useScrollScene, range, reducedMotion } from "../hooks";
 import RoleRotator from "./RoleRotator";
 
+// dust motes drifting through the lamp light (fixed values so every visit looks the same)
+const DUST = Array.from({ length: 16 }, (_, i) => ({
+  left: (i * 37) % 100,
+  top: 30 + ((i * 53) % 55),
+  size: 1.5 + ((i * 7) % 4) * 0.6,
+  dur: 9 + ((i * 11) % 9),
+  delay: -((i * 13) % 17),
+}));
+
 const Letters = ({ text, base }) =>
   [...text].map((ch, i) => <span className="lt" key={i} style={{ "--i": base + i }}>{ch}</span>);
 
@@ -22,7 +31,9 @@ export default function Hero() {
     const rm = reducedMotion();
     const push = rm ? 1 : range(p, 0, 0.3);
     const a = rm ? 1 : range(p, 0.24, 0.52);
-    const b = rm ? 1 : range(p, 0.32, 0.5);
+    const narrow = window.innerWidth < 960;
+    // on phones the room lights up a little sooner, so the statement under the photo is readable straight away
+    const b = rm ? 1 : narrow ? range(p, 0.24, 0.42) : range(p, 0.32, 0.5);
     const c = rm ? 1 : range(p, 0.5, 0.92);
     const lb = rm ? 0 : push * (1 - range(p, 0.3, 0.46));
     el.style.setProperty("--push", push.toFixed(4));
@@ -55,11 +66,19 @@ export default function Hero() {
   return (
     <section id="top" className="hero" ref={ref}>
       <div className="hero-pin">
+        <div className="hero-backdrop" aria-hidden="true"><img src={profile.deskPhoto} alt="" /></div>
         <div className="hero-media">
           <img src={profile.deskPhoto} alt="Ayush at his desk, working late under a lamp" />
         </div>
         <div className="hero-shade" aria-hidden="true" />
         <div className="hero-leak" aria-hidden="true" />
+        <div className="hero-flare" aria-hidden="true"><span /></div>
+        <div className="hero-dust" aria-hidden="true">
+          {DUST.map((d, i) => (
+            <i key={i} style={{ left: `${d.left}%`, top: `${d.top}%`, width: d.size, height: d.size, animationDuration: `${d.dur}s`, animationDelay: `${d.delay}s` }} />
+          ))}
+        </div>
+        <div className="hero-vignette" aria-hidden="true" />
         <div className="hero-grain" aria-hidden="true" />
 
         <div className="hero-copy">
