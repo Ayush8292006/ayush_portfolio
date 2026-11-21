@@ -64,9 +64,9 @@ export default function Work() {
         <div className="work-track" ref={trackRef}>
           <div className="work-intro">
             <ScrollTitle text="Things I've built" from={0} span={0.12} />
-            <p className="lede">Five MERN and AI projects, all live. Keep scrolling to move through them.</p>
+            <p className="lede">Four full-stack and GenAI projects, all live and deployed. Keep scrolling to move through them.</p>
           </div>
-          {projects.map((p) => (
+          {projects.map((p, idx) => (
             <article className="work-panel" key={p.title} style={{ "--accent": p.accent }}>
               <span className="work-ghost" aria-hidden="true">{p.title}</span>
               <div className="work-visual">
@@ -80,15 +80,21 @@ export default function Work() {
                 </a>
               </div>
               <div className="work-text">
+                <p className="work-subtitle">0{idx + 1} · {p.subtitle}</p>
                 <h3 className="work-title">{p.title}</h3>
                 <p className="work-what">{p.what}</p>
                 <p className="work-detail">{p.detail}</p>
+                {p.highlights && (
+                  <ul className="work-highlights">
+                    {p.highlights.map((h) => <li key={h}>{h}</li>)}
+                  </ul>
+                )}
                 <ul className="work-stack">
                   {p.stack.split(", ").map((t) => <li key={t}>{t}</li>)}
                 </ul>
                 <div className="work-links">
-                  <a href={p.live} target="_blank" rel="noreferrer" className="btn btn--ink">Open live site</a>
-                  <a href={p.code} target="_blank" rel="noreferrer" className="u-link">Read the code</a>
+                  <a href={p.live} target="_blank" rel="noreferrer" className="btn btn--ink">Open live site ↗</a>
+                  <a href={p.code} target="_blank" rel="noreferrer" className="u-link">View source code ↗</a>
                 </div>
               </div>
             </article>
