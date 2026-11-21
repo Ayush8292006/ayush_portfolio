@@ -64,7 +64,7 @@ export default function Work() {
         <div className="work-track" ref={trackRef}>
           <div className="work-intro">
             <ScrollTitle text="Things I've built" from={0} span={0.12} />
-            <p className="lede">Four full-stack and GenAI projects, all live and deployed. Keep scrolling to move through them.</p>
+            <p className="lede">Four production MERN stack and GenAI projects, all live and deployed. Keep scrolling to move through them.</p>
           </div>
           {projects.map((p, idx) => (
             <article className="work-panel" key={p.title} style={{ "--accent": p.accent }}>

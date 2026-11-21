@@ -12,7 +12,7 @@ export const profile = {
   firstName: "Ayush",
   lastName: "Kumar",
   name: "Ayush Kumar",
-  designation: "Software Developer · Full Stack · GenAI & ML",
+  designation: "Software Developer · MERN Stack · GenAI & ML",
   email: "aksrivastav0825@gmail.com",
   phone: "+91 80830 72553",
   location: "Greater Noida, India",
@@ -21,24 +21,25 @@ export const profile = {
   // cycles under the name with a decoding effect
   roles: [
     "Software Developer",
-    "Full Stack Developer",
-    "GenAI & ML Enthusiast",
+    "MERN Stack Developer",
+    "Full Stack Engineer",
     "Front-End Developer @ TechoraTech",
+    "GenAI & ML Enthusiast",
     "Open to SDE & AI Roles",
   ],
   intro:
-    "3rd-year B.Tech CSE (AI) student and full-time Front-End Developer at TechoraTech. I build end-to-end web apps with React, Next.js and Node.js — and engineer AI systems with LangChain, GraphRAG and Gemini.",
+    "3rd-year B.Tech CSE (AI) student and full-time Front-End Developer at TechoraTech. I build scalable web apps with the MERN stack (MongoDB, Express, React, Node.js) and Next.js — and engineer AI systems with LangGraph, LangChain and Gemini.",
   highlights: [
     { value: "TechoraTech", label: "Full-Time Front-End Dev" },
     { value: "300+ DSA", label: "Solved in C++ on LeetCode" },
-    { value: "5+ Live Apps", label: "Full-Stack & GenAI Systems" },
+    { value: "4+ Live Apps", label: "MERN Stack & GenAI Systems" },
     { value: "B.Tech CSE (AI)", label: "GL Bajaj · 2024–2028" },
   ],
 };
 
 // Lit word by word while the hero scrolls (About Me narrative)
 export const statement =
-  "I'm a third-year B.Tech Computer Science (AI) student who already ships production code for clients. By day I build responsive React and React Native frontends full-time at TechoraTech. Beyond work I engineer real-time full-stack platforms, a GraphRAG movie recommendation engine, and study Machine Learning and Deep Learning.";
+  "I'm a third-year B.Tech Computer Science (AI) student who already ships production code for clients. By day I build responsive React and React Native frontends full-time at TechoraTech. Beyond work I engineer MERN stack platforms with real-time features, AI workspaces with LangGraph, and study Machine Learning.";
 
 export const links = [
   { label: "GitHub", href: "https://github.com/Ayush8292006" },
