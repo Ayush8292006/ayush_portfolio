@@ -28,8 +28,15 @@ export default function Toolkit() {
       <dl className="tool-grid">
         {toolkit.map((g) => (
           <ScrollFade className="tool-group" key={g.group} from={0.1} to={0.32} shift={28}>
-            <dt>{g.group}</dt>
-            <dd>{g.items}</dd>
+            <dt className="tool-group-head">
+              <span>{g.group}</span>
+              {g.badge && <span className="tool-badge">{g.badge}</span>}
+            </dt>
+            <dd className="tool-pills">
+              {g.items.map((item) => (
+                <span className="tool-pill" key={item}>{item}</span>
+              ))}
+            </dd>
           </ScrollFade>
         ))}
       </dl>

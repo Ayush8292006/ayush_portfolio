@@ -114,7 +114,7 @@ export default function GenAI() {
       <div className="genai-pin">
         <div className="genai-text">
           <ScrollTitle text="How my AI apps find answers" className="h-section h-section--night" />
-          <p className="lede lede--night">Keep scrolling to run MovieMind's GraphRAG pipeline — the same retrieval pattern I use in every GenAI app I build.</p>
+          <p className="lede lede--night">Keep scrolling to run MovieMind&apos;s GraphRAG pipeline — the same retrieval pattern I use in every GenAI app I build.</p>
           <ol className="ai-steps">
             {aiDemo.steps.map((st, i) => (
               <li className="ai-step" key={st.title}>

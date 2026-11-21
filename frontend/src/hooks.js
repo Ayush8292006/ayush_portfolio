@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 
 export const clamp01 = (v) => Math.min(1, Math.max(0, v));
 /** Remaps p from [a, b] to [0, 1]. */
@@ -38,6 +38,10 @@ if (typeof window !== "undefined") {
  * Writes nothing itself and never re-renders React — callers set styles directly.
  */
 export function useScrollScene(ref, onFrame, mode = "pin") {
+  const frameRef = useRef(onFrame);
+  useLayoutEffect(() => {
+    frameRef.current = onFrame;
+  });
   useLayoutEffect(() => {
     const el = ref.current;
     if (!el) return;
@@ -47,12 +51,11 @@ export function useScrollScene(ref, onFrame, mode = "pin") {
         mode === "pin"
           ? clamp01(-r.top / Math.max(1, r.height - vh))
           : clamp01((vh - r.top) / (vh + r.height));
-      onFrame(p, el, vh, vw);
+      frameRef.current(p, el, vh, vw);
     };
     subscribers.add(fn);
     fn(window.innerHeight, window.innerWidth);
     return () => subscribers.delete(fn);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ref, mode]);
 }
 

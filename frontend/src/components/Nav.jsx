@@ -8,7 +8,8 @@ export default function Nav() {
         <a href="#work">Work</a>
         <a href="#ai" className="hide-sm">AI</a>
         <a href="#experience" className="hide-sm">Experience</a>
-        <a href="#contact" className="hide-sm">Contact</a>
+        <a href="#toolkit" className="hide-sm">Skills</a>
+        <a href="#contact">Contact</a>
         <a href={profile.resume} target="_blank" rel="noreferrer">Résumé</a>
       </nav>
     </header>

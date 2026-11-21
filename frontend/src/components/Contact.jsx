@@ -47,7 +47,7 @@ export default function Contact() {
 
         <div className="contact-grid">
           <div className="contact-more">
-            <p>Or call <a className="u-link" href={`tel:${profile.phone.replace(/\s/g, "")}`}>{profile.phone}</a>. I'm based in {profile.location} and reply within a day.</p>
+            <p>Or call <a className="u-link" href={`tel:${profile.phone.replace(/\s/g, "")}`}>{profile.phone}</a>. I&apos;m based in {profile.location} and reply within a day.</p>
             <ul className="contact-links">
               {links.map((l) => (
                 <li key={l.label}><a className="u-link" href={l.href} target="_blank" rel="noreferrer">{l.label}</a></li>
@@ -73,8 +73,8 @@ export default function Contact() {
               <button type="submit" className="btn btn--lamp" disabled={status === "sending"}>
                 {status === "sending" ? "Sending…" : status === "sent" ? "Message sent" : "Send message"}
               </button>
-              {status === "sent" && <p className="form-note">Thanks — I'll reply within a day.</p>}
-              {status === "error" && <p className="form-note form-note--error">The message didn't send. Email me directly at {profile.email}.</p>}
+              {status === "sent" && <p className="form-note">Thanks — I&apos;ll reply within a day.</p>}
+              {status === "error" && <p className="form-note form-note--error">The message didn&apos;t send. Email me directly at {profile.email}.</p>}
             </div>
           </form>
         </div>

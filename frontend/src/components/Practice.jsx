@@ -32,7 +32,18 @@ export default function Practice() {
             <li key={s.key}><span className={`dot dot--${s.key}`} />{s.label} <strong>{s.n}</strong></li>
           ))}
         </ul>
-        <a href={leetcode.url} target="_blank" rel="noreferrer" className="u-link">See my LeetCode profile</a>
+        <a href={leetcode.url} target="_blank" rel="noreferrer" className="u-link">See my LeetCode profile ↗</a>
+
+        {leetcode.achievements && (
+          <div className="practice-ach">
+            <ScrollFade as="h3" className="practice-ach-title" from={0.1} to={0.28}>Key Achievements</ScrollFade>
+            <ul className="practice-ach-list">
+              {leetcode.achievements.map((ach) => (
+                <ScrollFade as="li" key={ach} from={0.12} to={0.3} shift={20}>{ach}</ScrollFade>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
 
       <div className="practice-edu">

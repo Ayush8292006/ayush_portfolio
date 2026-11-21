@@ -73,7 +73,7 @@ export default function ML() {
         <div className="ml-text">
           <ScrollTitle text="Next: training my own models" className="h-section h-section--night" />
           <p className="lede lede--night">{mlLearning.goal}</p>
-          <p className="ml-now">What I'm learning now</p>
+          <p className="ml-now">What I&apos;m learning now</p>
           <ul className="ml-topics">
             {mlLearning.topics.map((t) => <li className="ml-topic" key={t}>{t}</li>)}
           </ul>

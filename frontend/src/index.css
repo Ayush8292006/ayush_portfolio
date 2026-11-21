@@ -220,55 +220,23 @@ button, input, textarea { font: inherit; color: inherit; }
 .hero-links a:hover { color: var(--lamp); }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
 
-/* statement (About Me) that lights up word by word on the concrete */
-.statement-wrap {
+/* statement that lights up word by word on the concrete */
+.statement {
   position: absolute;
   left: var(--gutter);
   top: 50%;
-  width: min(44vw, 650px);
+  width: min(44vw, 640px);
   transform: translate3d(0, calc(-50% + (1 - var(--b)) * 60px), 0);
+  font-size: clamp(1.5rem, 2.35vw, 2.4rem);
+  font-weight: 600;
+  line-height: 1.22;
+  letter-spacing: -0.015em;
+  color: var(--ink);
   opacity: clamp(0, calc((var(--b) - 0.55) * 3), 1);
   pointer-events: none;
 }
-.statement-label {
-  display: inline-block;
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--lamp-deep);
-  margin-bottom: 14px;
-}
-.statement {
-  font-size: clamp(1.42rem, 2.25vw, 2.3rem);
-  font-weight: 600;
-  line-height: 1.24;
-  letter-spacing: -0.015em;
-  color: var(--ink);
-}
 .st-word { color: rgba(13, 16, 22, 0.16); transition: color 0.25s linear; }
 .st-word.is-lit { color: var(--ink); }
-
-.statement-highlights {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px 24px;
-  margin-top: 26px;
-  padding-top: 20px;
-  border-top: 1px solid rgba(13, 16, 22, 0.16);
-}
-.statement-hi dt {
-  font-weight: 800;
-  font-size: 1.05rem;
-  color: var(--ink);
-  letter-spacing: -0.01em;
-}
-.statement-hi dd {
-  font-size: 0.84rem;
-  color: var(--graphite);
-  line-height: 1.35;
-}
 
 /* ==========================================================
    Light sections
@@ -795,17 +763,14 @@ html:not(.is-ready) .hero-pin *, html:not(.is-ready) .hero-pin *::before, html:n
   }
   .hero-media img { transform: scale(calc(1.04 + var(--push) * 0.12 - var(--a) * 0.16)); }
   .hero-copy { grid-template-columns: 1fr; gap: 22px; }
-  .statement-wrap {
-    top: 50vh;
+  .statement {
+    top: 52vh;
     width: auto;
     right: var(--gutter);
     transform: translate3d(0, calc((1 - var(--b)) * 40px), 0);
+    font-size: clamp(1.2rem, 4.6vw, 1.6rem);
     opacity: clamp(0, calc((var(--a) - 0.62) * 3.5), 1) !important;
   }
-  .statement { font-size: clamp(1.15rem, 4.3vw, 1.52rem); }
-  .statement-highlights { margin-top: 16px; padding-top: 14px; gap: 10px 18px; }
-  .statement-hi dt { font-size: 0.95rem; }
-  .statement-hi dd { font-size: 0.78rem; }
 
   .work-pin { height: 100svh; }
   .work-track { gap: 36px; padding: 0 24px; }
@@ -884,5 +849,5 @@ html:not(.is-ready) .hero-pin *, html:not(.is-ready) .hero-pin *::before, html:n
   .hero-links { margin-top: 12px; gap: 8px 16px; font-size: 0.85rem; }
   .hero-caption { top: calc(var(--pt) + var(--ph) - 2.6rem); bottom: auto; white-space: normal; text-align: center; width: 86vw; font-size: 0.95rem; }
   .letterbox { height: calc(var(--lb) * 7vh); }
-  .statement-wrap { top: calc(var(--pt) + var(--ph) + 22px); left: var(--gutter); right: var(--gutter); width: auto; transform: none; }
+  .statement { top: calc(var(--pt) + var(--ph) + 28px); left: var(--gutter); right: var(--gutter); width: auto; transform: none; }
 }

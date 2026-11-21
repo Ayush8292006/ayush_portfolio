@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { profile, statement } from "../data";
+import { profile, statement, links } from "../data";
 import { useScrollScene, range, reducedMotion } from "../hooks";
 import RoleRotator from "./RoleRotator";
 
@@ -95,6 +95,16 @@ export default function Hero() {
               <a href="#work" className="btn btn--lamp">See my work</a>
               <a href={profile.resume} target="_blank" rel="noreferrer" className="btn btn--line">Download résumé</a>
             </div>
+            <ul className="hero-links" aria-label="Profiles">
+              {links.map((l) => (
+                <li key={l.label}>
+                  <a href={l.href} target="_blank" rel="noreferrer" className="u-link">{l.label} ↗</a>
+                </li>
+              ))}
+              <li>
+                <a href="#contact" className="u-link">Let&apos;s connect</a>
+              </li>
+            </ul>
           </div>
         </div>
 

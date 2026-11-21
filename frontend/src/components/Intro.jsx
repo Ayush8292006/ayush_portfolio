@@ -51,7 +51,6 @@ export default function Intro() {
     const skip = () => open();
     window.addEventListener("keydown", skip, { once: true });
     return () => { cancelAnimationFrame(raf); window.removeEventListener("keydown", skip); t.forEach(clearTimeout); };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => { if (stage === "gone") document.body.style.overflow = ""; }, [stage]);

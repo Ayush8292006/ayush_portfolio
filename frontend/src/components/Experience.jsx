@@ -16,13 +16,20 @@ export default function Experience() {
       <ol className="exp-list">
         {experience.map((job) => (
           <ScrollFade as="li" className="exp-item" key={job.org} from={0.08} to={0.3}>
-            <p className="exp-period">{job.period}</p>
+            <div className="exp-meta">
+              <p className="exp-period">{job.period}</p>
+              <span className="exp-note">{job.note}</span>
+            </div>
             <div className="exp-body">
-              <h3 className="exp-role">{job.role} at {job.org}</h3>
-              <p className="exp-note">{job.note}</p>
+              <h3 className="exp-role">{job.role} <span className="exp-org">at {job.org}</span></h3>
               <ul className="exp-points">
                 {job.points.map((pt) => <li key={pt}>{pt}</li>)}
               </ul>
+              {job.tags && (
+                <ul className="exp-tags" aria-label={`Technologies used at ${job.org}`}>
+                  {job.tags.map((tag) => <li key={tag}>{tag}</li>)}
+                </ul>
+              )}
             </div>
           </ScrollFade>
         ))}

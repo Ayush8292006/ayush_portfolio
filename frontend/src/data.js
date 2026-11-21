@@ -37,9 +37,9 @@ export const profile = {
   ],
 };
 
-// Lit word by word while the hero scrolls (About Me narrative)
+// Lit word by word while the hero scrolls
 export const statement =
-  "I'm a third-year B.Tech Computer Science (AI) student who already ships production code for clients. By day I build responsive React and React Native frontends full-time at TechoraTech. Beyond work I engineer MERN stack platforms with real-time features, AI workspaces with LangGraph, and study Machine Learning.";
+  "I'm a third-year computer science student who already ships for clients. By day I build React frontends and dashboards at TechoraTech. By night I build my own real-time apps, payment flows and a movie recommender that reasons over a knowledge graph.";
 
 export const links = [
   { label: "GitHub", href: "https://github.com/Ayush8292006" },
