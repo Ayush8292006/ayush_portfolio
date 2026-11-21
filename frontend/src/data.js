@@ -3,12 +3,10 @@
 //  text, links, projects or numbers. Components only render it.
 // ============================================================
 import deskPhoto from "./assets/ayush-desk.webp";
-import aivoraImg from "./assets/aivora.png";
+import aivoraImg from "./assets/aivora.jpg";
 import cravelyImg from "./assets/cravely.webp";
 import movieMindImg from "./assets/moviemind.webp";
 import cinebookImg from "./assets/cinebook.webp";
-import assistantImg from "./assets/assistant.webp";
-import projectFlowImg from "./assets/projectflow.webp";
 
 export const profile = {
   firstName: "Ayush",
@@ -50,24 +48,6 @@ export const links = [
 
 export const projects = [
   {
-    title: "Aivora AI",
-    subtitle: "Autonomous Multi-Model SaaS Workspace",
-    accent: "#10b981",
-    what: "An autonomous multi-model AI platform unifying full-stack web app generation with live code sandboxes, executive slide decks, publication-ready PDFs, and cinematic visuals.",
-    detail:
-      "Architected a distributed microservices gateway with an adaptive LangGraph agent graph, Redis-backed session token accounting, Groq/Gemini routing, dynamic credit wallet, and speech-to-text.",
-    highlights: [
-      "Adaptive LangGraph multi-agent orchestration",
-      "Live Monaco code sandbox with interactive runner",
-      "Token & credit accounting with Razorpay integration",
-      "Speech-to-text voice input & dynamic CORS gateway",
-    ],
-    stack: "React, Node.js, Express, LangGraph, MongoDB, Redis, Groq, Gemini API, Tailwind CSS",
-    image: aivoraImg,
-    live: "https://aivora-ai-omega.vercel.app/",
-    code: "https://github.com/Ayush8292006/Aivora-AI",
-  },
-  {
     title: "Cravely",
     subtitle: "Multi-Role Food Delivery Platform",
     accent: "#ff7a1a",
@@ -86,22 +66,22 @@ export const projects = [
     code: "https://github.com/Ayush8292006/cravely-food-delivery",
   },
   {
-    title: "MovieMind",
-    subtitle: "GraphRAG Recommendation Engine",
-    accent: "#8b5cf6",
-    what: "A movie recommendation engine that answers questions by walking a Neo4j knowledge graph combined with Pinecone vector search.",
+    title: "Aivora AI",
+    subtitle: "All-in-One AI Workspace for Code, Slides & Docs",
+    accent: "#f59e0b",
+    what: "An all-in-one AI platform that turns prompts into full-stack web applications, executive slide presentations, printable PDFs, and realistic images.",
     detail:
-      "Built entity extraction, graph construction and hybrid retrieval (graph traversal + semantic search) over 1,000+ movies and 10,000+ relationships, orchestrated with LangChain and Gemini.",
+      "Features a smart multi-model backend that routes tasks to the best AI model (Groq for fast reasoning, Gemini for vision). Includes in-browser code execution sandboxes, speech-to-text voice input, a credit wallet with Razorpay payments, and Redis session management.",
     highlights: [
-      "GraphRAG pipeline with LangChain",
-      "Neo4j knowledge graph + Pinecone",
-      "Hybrid graph & semantic retrieval",
-      "1,000+ movies & 10,000+ relationships",
+      "Generates interactive web apps with live code execution",
+      "Creates presentation decks and printable PDF documents",
+      "Speech-to-text voice input & real-time messaging",
+      "User credit wallet with secure Razorpay checkout",
     ],
-    stack: "React, Node.js, LangChain, Neo4j, Pinecone, Gemini API",
-    image: movieMindImg,
-    live: "https://moviemind-xi.vercel.app/",
-    code: "https://github.com/Ayush8292006/MovieMind---GraphRAG",
+    stack: "React, Node.js, Express, LangGraph, MongoDB, Redis, Groq, Gemini API, Tailwind CSS",
+    image: aivoraImg,
+    live: "https://aivora-ai-omega.vercel.app/",
+    code: "https://github.com/Ayush8292006/Aivora-AI",
   },
   {
     title: "CineBook",
@@ -122,40 +102,22 @@ export const projects = [
     code: "https://github.com/Ayush8292006/CineBook-TicketBooking",
   },
   {
-    title: "AI Assistant",
-    subtitle: "Voice-Enabled Chatbot",
-    accent: "#3b82f6",
-    what: "A voice-first AI virtual assistant you can talk to directly in the browser.",
+    title: "MovieMind",
+    subtitle: "GraphRAG Recommendation Engine",
+    accent: "#8b5cf6",
+    what: "A movie recommendation engine that answers questions by walking a Neo4j knowledge graph combined with Pinecone vector search.",
     detail:
-      "Built with the Web Speech API for speech recognition and synthesis and Google Gemini for conversational intelligence, secured with JWT auth and persistent per-user chat history in MongoDB.",
+      "Built entity extraction, graph construction and hybrid retrieval (graph traversal + semantic search) over 1,000+ movies and 10,000+ relationships, orchestrated with LangChain and Gemini.",
     highlights: [
-      "Voice-first Web Speech API interface",
-      "Google Gemini LLM integration",
-      "JWT authentication & protected routes",
-      "Persistent MongoDB chat history",
+      "GraphRAG pipeline with LangChain",
+      "Neo4j knowledge graph + Pinecone",
+      "Hybrid graph & semantic retrieval",
+      "1,000+ movies & 10,000+ relationships",
     ],
-    stack: "React, Node.js, MongoDB, Gemini API, Web Speech API, JWT",
-    image: assistantImg,
-    live: "https://virtual-chatbot-sandy.vercel.app/",
-    code: "https://github.com/Ayush8292006/Virtual-Chatbot",
-  },
-  {
-    title: "ProjectFlow",
-    subtitle: "Kanban & Timeline Workspace",
-    accent: "#a855f7",
-    what: "A task board with drag-and-drop columns and a timeline view.",
-    detail:
-      "Tasks move smoothly between To do, In progress and Done, and the whole board is saved locally with Zustand and animated with Framer Motion.",
-    highlights: [
-      "Drag-and-drop Kanban columns",
-      "Interactive timeline schedule view",
-      "Persistent local state via Zustand",
-      "Smooth Framer Motion transitions",
-    ],
-    stack: "React, TypeScript, Tailwind CSS, Zustand, Framer Motion",
-    image: projectFlowImg,
-    live: "https://kanban-timeline-website.vercel.app/",
-    code: "https://github.com/Ayush8292006/kanban-timeline-website",
+    stack: "React, Node.js, LangChain, Neo4j, Pinecone, Gemini API",
+    image: movieMindImg,
+    live: "https://moviemind-xi.vercel.app/",
+    code: "https://github.com/Ayush8292006/MovieMind---GraphRAG",
   },
 ];
 
