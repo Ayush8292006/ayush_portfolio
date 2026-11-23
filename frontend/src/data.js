@@ -68,7 +68,7 @@ export const projects = [
   },
   {
     title: "Aivora AI",
-    subtitle: "Multi-Model AI Workspace for Apps & Docs",
+    subtitle: "Multi-Agent SaaS Platform with Live Code Runner",
     accent: "#f59e0b",
     what: "An all-in-one AI platform that turns natural language prompts into full-stack web applications, slide presentations, printable PDFs, and images.",
     detail:
